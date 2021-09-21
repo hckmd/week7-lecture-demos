@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Add animal</h1>
+<form method="POST">
+    <label for="animal_name">Animal name:</label><br>
+    <input type="text" id="animal_name" name="animal_name"><br>
+    <label for="animal_rating">Animal rating:</label><br>
+    <input type="text" id="animal_rating" name="animal_rating"><br><br>
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}
