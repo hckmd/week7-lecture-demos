@@ -3,21 +3,12 @@ import csv
 from flask import render_template, request
 
 from app import app, db
-from .models import Student
-
-def load_students():
-    # A utility function to load the students' grades from the csv file
-    students = []
-    with open('students.csv') as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            students.append(row)
-    return students
+from app.models import Student
 
 @app.route('/')
 def index():
-    # Load the students from the CSV file for the table
-    students = load_students()
+    # Load the students from the database file for the table
+    students = Student.query.all()
     # Return the index view with the list of students for display
     return render_template('index.html', students = students)
 
