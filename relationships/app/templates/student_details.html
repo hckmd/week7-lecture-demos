@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ student.name }}</h2>
+<p>Student ID: {{ student.id }}</p>
+<p>Phone number: {{ student.contact_details.phone }}</p>
+<h3>Enrolled in:</h3>
+<table class="pure-table pure-table-striped">
+    <thead>
+        <tr>
+            <th>Course ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for course in student.courses %}
+        <tr>
+            <td>{{ course.id }}</td>
+            <td>
+                <a href="{{ url_for('course_details', id=course.id) }}">{{ course.name }}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
