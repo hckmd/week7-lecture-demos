@@ -14,7 +14,7 @@ def index():
 @app.route('/add_student', methods = ['GET', 'POST'])
 def add_student():
     form = AddStudentForm()
-    # Check if the form has been submitted (is a POST request)
+    # Check if the form has been submitted (is a POST request) and form inputs are valid
     if form.validate_on_submit():
         # Get data from the form and put in a Student object
         student = Student()
