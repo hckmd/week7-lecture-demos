@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Fruit shop stock</h2>
+<table class="pure-table pure-table-striped">
+    <thead>
+        <tr>
+            <th>Variety</th>
+            <th>Type</th>
+            <th>Price (cents)</th>
+            <th>Quantity</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for fruit in fruits %}
+        <tr>
+            <td>{{ fruit.variety }}</td>
+            <td>{{ fruit.type }}</td>
+            <td>{{ fruit.price_cents }}</td>
+            <td>{{ fruit.quantity }}</td>
+            <td>
+                <a class="button-secondary pure-button" href="{{ url_for('edit_fruit', id=fruit.id) }}">
+                    Edit
+                </a>
+            </td>
+            <td>
+                <a class="button-warning pure-button" href="{{ url_for('delete_fruit', id=fruit.id) }}">
+                    Delete
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p>
+    <a class="pure-button pure-button-primary" href="{{ url_for('add_fruit') }}">
+        Add another fruit
+    </a>
+</p>
+{% endblock %}

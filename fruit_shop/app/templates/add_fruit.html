@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add new fruit</h2>
+<ul class="errors">
+{% for field, errors in form.errors.items() %}
+    <li>
+        {{ form[field].label }} {{ ', '.join(errors) }}
+    </li>
+{% endfor %}
+</ul>
+<form method="POST" class="pure-form pure-form-stacked">
+    {{ form.csrf_token }}
+
+    {{ form.variety.label }}
+    {{ form.variety }}
+
+    {{ form.type.label }}
+    {{ form.type }}
+
+    {{ form.price_cents.label }}
+    {{ form.price_cents }}
+
+    {{ form.quantity.label }}
+    {{ form.quantity }}
+
+    <br/>
+    {{ form.submit(class_="pure-button pure-button-primary") }}
+
+</form>
+{% endblock %}
