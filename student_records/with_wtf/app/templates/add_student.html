@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Enter student marks</h2>
+<form method="POST" class="pure-form pure-form-stacked">
+    {{ form.csrf_token }}
+
+    {{ form.name.label }}
+    {{ form.name }}
+
+    <h3>Subjects</h3>
+
+    {{ form.english_mark.label }}
+    {{ form.english_mark }}
+
+    {{ form.science_mark.label }}
+    {{ form.science_mark }}
+
+    {{ form.mathematics_mark.label }}
+    {{ form.mathematics_mark }}
+
+    <h3>Behaviours</h3>
+
+    {{ form.does_homework.label }}
+    {{ form.does_homework }}
+
+    {{ form.stays_on_task.label }}
+    {{ form.stays_on_task }}
+    <br/>
+    {{ form.submit }}
+
+</form>
+{% endblock %}
