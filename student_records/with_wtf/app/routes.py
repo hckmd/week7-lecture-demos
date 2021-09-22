@@ -8,8 +8,6 @@ from app.forms import AddStudentForm
 def index():
     # Load the students from the database file for the table
     students = Student.query.all()
-    for student in students:
-        print(student.does_homework)
     # Return the index view with the list of students for display
     return render_template('index.html', students = students)
 
@@ -21,7 +19,6 @@ def add_student():
         # Get data from the form and put in a Student object
         student = Student()
         form.populate_obj(obj=student)
-        print(student.does_homework)
         db.session.add(student)
         db.session.commit()
         
